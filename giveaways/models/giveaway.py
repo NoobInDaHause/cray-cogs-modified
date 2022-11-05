@@ -487,7 +487,7 @@ class Giveaway(GiveawayMeta):
 
         if msg:
             kwargs["embed"] = discord.Embed(
-                title=f"**<:NCR_Giftaway:1027918800915542027> **Giveaway** <:NCR_Giftaway:1027918800915542027>**", description=f"**Message:** {msg}", color=discord.Colour.random()
+                title=f"**<:NCR_Giftaway:1027918800915542027> **Giveaway** <:NCR_Giftaway:1027918800915542027>**", description=f"**Message:** {msg}", color=await self.get_embed_color()
             )
 
         if any((kwargs["content"], kwargs["embed"])):
