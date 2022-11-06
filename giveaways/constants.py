@@ -19,7 +19,7 @@ embed_thumbnail: str = "{server_icon_url}"
 
 guild_default_config = {
     "msg": "<a:NCR_PlagueDoctorDancing:1011416910929346580> **GIVEAWAY** <a:NCR_PlagueDoctorDancing:1011416910929346580>",
-    "emoji": "🎉",
+    "emoji": "🎁",
     "winnerdm": False,
     "winnerdm_message": winnerdm_message,
     "hostdm": False,
