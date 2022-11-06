@@ -14,7 +14,7 @@ from .flags import GiveawayFlags
 from .guildsettings import apply_multi, get_guild_settings
 from .requirements import Requirements
 
-gendmsg = "**<a:NCR_PeaceOut:1038327069614026832> GIVEAWAY ENDED <a:NCR_PeaceOut:1038327069614026832>**"
+gendmsg = "**<a:NCR_PlagueDoctorDancing:1011416910929346580> GIVEAWAY ENDED <a:NCR_PlagueDoctorDancing:1011416910929346580>**"
 
 
 class GiveawayMeta:
@@ -601,7 +601,7 @@ class Giveaway(GiveawayMeta):
             embed = gmsg.embeds[0]
             embed.colour = discord.Embed.Empty
             embed.description = (
-                f"Winner(s): None\nHosted by: {host.mention}"
+                f"Winner(s): None\nHost: {host.mention}"
             )
             embed.set_footer(text=f"Winners: {winners} | Ended at ")
             await gmsg.edit(embed=embed, content=gendmsg)
@@ -614,7 +614,7 @@ class Giveaway(GiveawayMeta):
 
         embed: discord.Embed = gmsg.embeds[0]
         embed.colour = discord.Embed.Empty
-        embed.description = f"Winner(s): {w}\nHosted by: {host.mention}"
+        embed.description = f"Winner(s): {w}\nHost: {host.mention}"
         embed.set_footer(text=f"Winners: {winners} | Ended at")
         await gmsg.edit(embed=embed, content=gendmsg)
 
