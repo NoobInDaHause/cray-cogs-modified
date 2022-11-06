@@ -607,7 +607,7 @@ class Giveaway(GiveawayMeta):
             embed.set_footer(text=f"Winners: {winners} | Ended at ")
             await gmsg.edit(embed=embed, content=gendmsg)
 
-            await gmsg.reply(endmsg2.format_map(formatdict))
+            await gmsg.channel.send(endmsg2.format_map(formatdict))
             if hostdm == True:
                 await self.hdm()
 
@@ -619,7 +619,7 @@ class Giveaway(GiveawayMeta):
         embed.set_footer(text=f"Winners: {winners} | Ended at")
         await gmsg.edit(embed=embed, content=gendmsg)
 
-        await gmsg.reply(endmsg.format_map(formatdict))
+        await gmsg.channel.send(endmsg.format_map(formatdict))
 
         if winnerdm == True:
             await self.wdm()
