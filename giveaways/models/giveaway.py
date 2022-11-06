@@ -489,7 +489,7 @@ class Giveaway(GiveawayMeta):
             kwargs["embed"] = discord.Embed(
                 description=f"{msg}", color=await self.get_embed_color()
             )
-            kwargs["embed"].set_author(name='Donor Message', icon_url='https://cdn.discordapp.com/attachments/1005509686302359562/1038805007182598144/giftaway.png')
+            kwargs["embed"].set_author(name='Donor Message', icon_url='https://emoji.discadia.com/emojis/3d0fd7cd-8331-4045-a254-28fcc3b2a06a.PNG')
 
         if any((kwargs["content"], kwargs["embed"])):
             await channel.send(**kwargs, allowed_mentions=discord.AllowedMentions(roles=True))
