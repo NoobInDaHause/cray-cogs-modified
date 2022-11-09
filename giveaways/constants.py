@@ -11,7 +11,7 @@ hostdm_message: str = (
 
 embed_title: str = "{prize}"
 embed_description: str = (
-    "React with {emoji} to enter\n" "**Host:** {host.mention}\n" "**Ends:** {timestamp}\n"
+    "React with {emoji} to enter\n" "Ends: {timestamp}\n" "Hosted by: {host.mention}\n"
 )
 embed_footer_text: str = "Winners: {winners} | Ends at "
 embed_footer_icon: str = "{host_avatar_url}"
@@ -31,7 +31,7 @@ guild_default_config = {
     "endmsg2": "There were no valid entries for the **{prize}** giveaway.\n{link}",
     "manager": [],
     "pingrole": None,
-    "autodelete": True,
+    "autodelete": False,
     "blacklist": [],
     "bypass": [],
     "multi_roles": {},
