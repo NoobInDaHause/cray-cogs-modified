@@ -602,7 +602,7 @@ class Giveaway(GiveawayMeta):
             embed = gmsg.embeds[0]
             embed.colour = discord.Embed.Empty
             embed.description = (
-                f"**Winners:** None\n**Host:** {host.mention}"
+                f"Winner(s): None\nHosted by: {host.mention}"
             )
             embed.set_footer(text=f"Winners: {winners} | Ended at ")
             await gmsg.edit(embed=embed, content=gendmsg)
@@ -615,7 +615,7 @@ class Giveaway(GiveawayMeta):
 
         embed: discord.Embed = gmsg.embeds[0]
         embed.colour = discord.Embed.Empty
-        embed.description = f"**Winners:** {w}\n**Host:** {host.mention}"
+        embed.description = f"Winner(s): {w}\nHosted by: {host.mention}"
         embed.set_footer(text=f"Winners: {winners} | Ended at")
         await gmsg.edit(embed=embed, content=gendmsg)
 
