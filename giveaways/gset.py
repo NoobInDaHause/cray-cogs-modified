@@ -173,10 +173,10 @@ class Gset(Giveaways, name="Giveaways"):
 
         Use these variables within curly brackets.
         For Example:
-                `Prize: **{prize}**
-                [p]gset tmsg Donator: {donor.mention}
+                `[p]gset tmsg Prize: **{prize}**
+                Donator: {donor.mention}
                 
-                Please thank **{donor}** in #general.`"""
+                Please thank **{donor}** in #general-chat.`"""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.tmsg.set(message)
         await ctx.reply(f"The new giveaway message has been set to \n```\n{message}\n```")
