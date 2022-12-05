@@ -280,7 +280,7 @@ class DonationLogging(commands.Cog):
             f"Alright. I've noted that down. You can now start logging donations."
         )
 
-    @dono.command(name="bal", aliases=["mydono"])
+    @dono.command(name="balance", aliases=["mydono", "bal"])
     @commands.guild_only()
     @setup_done()
     async def bal(self, ctx: commands.Context, bank: BankConverter = None):
@@ -294,7 +294,7 @@ class DonationLogging(commands.Cog):
 
             embed = discord.Embed(
                 title=f"Your donations in **__{ctx.guild.name}__** for **__{bank.name}__**",
-                description=f"Donated: {emoji} *{humanize_number(donos)}*",
+                description=f"{emoji} {humanize_number(donos)}",
                 color=await ctx.embed_color(),
             )
 
@@ -310,13 +310,13 @@ class DonationLogging(commands.Cog):
                     continue
                 donations = bank.get_user(ctx.author.id).donations
                 embed.add_field(
-                    name=f"*{bank.name.title()}*",
-                    value=f"Donated: {bank.emoji} {humanize_number(donations)}",
+                    name=f"{bank.name.title()}",
+                    value=f"{bank.emoji} {humanize_number(donations)}",
                     inline=True,
                 )
 
         embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
-        embed.set_footer(text="Thanks for donating <3", icon_url=ctx.guild.icon_url)
+        embed.set_footer(text=f"{ctx.guild} appreciates your donation!", icon_url=ctx.guild.icon_url)
 
         await ctx.send(embed=embed)
 
@@ -589,8 +589,8 @@ class DonationLogging(commands.Cog):
             for bank in banks:
                 donations = bank.get_user(user.id).donations
                 embed.add_field(
-                    name=f"*{bank.name.title()}*",
-                    value=f"Donated: {bank.emoji} {humanize_number(donations)}",
+                    name=f"{bank.name.title()}",
+                    value=f"{bank.emoji} {humanize_number(donations)}",
                     inline=True,
                 )
 
