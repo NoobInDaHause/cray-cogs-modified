@@ -1173,7 +1173,7 @@ class DonationLogging(commands.Cog):
             else "Successfully reset the log channel."
         )
 
-    @donoset.command(name="reset", hidden=True)
+    @donoset.command(name="reset")
     @commands.mod_or_permissions(administrator=True)
     @setup_done()
     async def donoset_reset(self, ctx: commands.Context):
@@ -1181,10 +1181,21 @@ class DonationLogging(commands.Cog):
         Completely reset you guild's settings.
 
         All your data will be removed and you will have to re-run the setup process.
+        
+        Note: Ignore the confirmation message if you wish to abort. DO NOT REPLY WITH `no` TO ABORT JUST IGNORE THE CONFIRMATION AND THE TIMEOUT WILL DO IT"S THING.
         """
-        await self.config.guild(ctx.guild).clear()
-        await self.cache.clear_guild_settings(ctx.guild.id)
-        return await ctx.send("Successfully reset your guild's settings.")
+        await ctx.send(
+            "Are you sure you want to reset the guild's entire donation system?\nRespond with `yes` to confirm.\nIgnore this message to abort. DO NOT REPLY WITH `no` TO ABORT JUST IGNORE THIS!"
+        )
+        pred = MessagePredicate.yes_or_no(ctx)
+        try:
+            await ctx.bot.wait_for("message", check=pred, timeout=10)
+        except asyncio.TimeoutError:
+            return await ctx.send("No response, aborting.")
+        else:
+            await self.config.guild(ctx.guild).clear()
+            await self.cache.clear_guild_settings(ctx.guild.id)
+            return await ctx.send("Successfully reset your guild's settings.")
 
     @donoset.command(name="showsettings", aliases=["showset", "ss"])
     @setup_done()
