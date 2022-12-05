@@ -14,7 +14,7 @@ from .flags import GiveawayFlags
 from .guildsettings import apply_multi, get_guild_settings
 from .requirements import Requirements
 
-gendmsg = "**<a:NCR_PlagueDoctorDancing:1011416910929346580> GIVEAWAY ENDED <a:NCR_PlagueDoctorDancing:1011416910929346580>**"
+gendmsg = "**:tada: GIVEAWAY ENDED :tada:**"
 
 
 class GiveawayMeta:
