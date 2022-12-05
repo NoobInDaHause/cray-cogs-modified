@@ -1184,18 +1184,25 @@ class DonationLogging(commands.Cog):
         
         Note: Ignore the confirmation message if you wish to abort. DO NOT REPLY WITH `no` TO ABORT JUST IGNORE THE CONFIRMATION AND THE TIMEOUT WILL DO IT"S THING.
         """
-        await ctx.send(
-            "Are you sure you want to reset the guild's entire donation system?\nRespond with `yes` to confirm.\nIgnore this message to abort. DO NOT REPLY WITH `no` TO ABORT JUST IGNORE THIS!"
-        )
-        pred = MessagePredicate.yes_or_no(ctx)
-        try:
-            await ctx.bot.wait_for("message", check=pred, timeout=10)
-        except asyncio.TimeoutError:
-            return await ctx.send("No response, aborting.")
-        else:
-            await self.config.guild(ctx.guild).clear()
-            await self.cache.clear_guild_settings(ctx.guild.id)
-            return await ctx.send("Successfully reset your guild's settings.")
+        dembed = discord.Embed(description="Are you sure you want to reset the guild's donation system? (yes/no)", color=discord.Colour.from_rgb(r=47, g=49, b=54))
+        await ctx.send(embed=dembed)
+        def check(m): # checking if it's the same user and channel
+            return m.author == ctx.author and m.channel == ctx.channel
+        try: # waiting for message
+            response = await ctx.bot.wait_for('message', check=check, timeout=15) # timeout - how long bot waits for message (in seconds)
+        except asyncio.TimeoutError: # returning after timeout
+            timeoutembed = discord.Embed(description="You took too long to respond cancelling reset.", color=discord.Colour.from_rgb(r=47, g=49, b=54))
+            return await ctx.send(embed=timeoutembed)
+        
+        # if response is different than yes / y - return
+        if response.content.lower() not in ("yes", "y"): # lower() makes everything lowercase to also catch: YeS, YES etc.
+            cancelembed = discord.Embed(description="Alright not doing that then.", color=discord.Colour.from_rgb(r=47, g=49, b=54))
+            return await ctx.send(embed=cancelembed)
+        
+        await self.config.guild(ctx.guild).clear()
+        await self.cache.clear_guild_settings(ctx.guild.id)
+        resetembed = discord.Embed(description="Successfully reset your guild's settings.", color=discord.Colour.from_rgb(r=47, g=49, b=54))
+        return await ctx.send(embed=resetembed)
 
     @donoset.command(name="showsettings", aliases=["showset", "ss"])
     @setup_done()
