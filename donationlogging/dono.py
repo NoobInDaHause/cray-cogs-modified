@@ -359,7 +359,7 @@ class DonationLogging(commands.Cog):
             else:
                 await ctx.send(role + "\n Couldn't find the logging channel.", embed=embed)
             await ctx.reply(
-                f"Succesfully "
+                f"Successfully "
                 f"{'added' if action.lower() == 'add' else 'removed'} **{emoji} {humanize_number(amount)}** to **{user}**'s **__{bank.name.title()}__** donation balance.\nThey now have donated a total of **{emoji} {humanize_number(donos)}** on **__{bank.name.title()}__**.",
                 mention_author=False
             )
