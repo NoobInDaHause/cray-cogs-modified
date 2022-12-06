@@ -49,6 +49,27 @@ class Gset(Giveaways, name="Giveaways"):
         await settings.msg2.set(message)
         await ctx.reply(f"The new end header message has been set to \n```\n{message}\n```")
 
+    @gset.command(name="color", aliases=["colour"])
+    @commands.admin_or_permissions(administrator=True)
+    async def gset_color(self, ctx, colour: discord.Colour = discord.Color(0x303036)):
+        """
+        Set the colour of giveaways embeds.
+        
+        if color is not passed, it will default to invisible embeds.
+        Before this command is used, the global bot color will be used.
+        Default is invisible (0x303036).
+        """
+        settings = await get_guild_settings(ctx.guild.id, False)
+        await settings.color.set(colour.value)
+        embed = discord.Embed(
+            title="Color successfully set!",
+            description=f"Embed colors for giveaways will now be set to `{colour.value}`",
+            color=colour,
+        ).set_image(
+            url=f"https://singlecolorimage.com/get/{str(colour)[1:]}/400x100.png"
+        ) # i love this api *chef kiss*
+        return await ctx.send(embed=embed)
+    
     @gset.command(name="tmsg")
     @commands.admin_or_permissions(administrator=True)
     async def gset_tmsg(self, ctx, *, message):
