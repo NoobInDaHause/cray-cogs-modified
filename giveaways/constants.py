@@ -18,7 +18,8 @@ embed_footer_icon: str = "{host_avatar_url}"
 embed_thumbnail: str = "{server_icon_url}"
 
 guild_default_config = {
-    "msg": ":tada: **GIVEAWAY** :tada:",
+    "msg": "**:tada: GIVEAWAY :tada:**",
+    "msg2": "**:tada: GIVEAWAY ENDED :tada:**",
     "emoji": "🎉",
     "winnerdm": False,
     "winnerdm_message": winnerdm_message,
