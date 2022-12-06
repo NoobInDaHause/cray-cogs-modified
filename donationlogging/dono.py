@@ -293,7 +293,7 @@ class DonationLogging(commands.Cog):
             emoji = bank.emoji
 
             embed = discord.Embed(
-                title=f"Your donations in **__{ctx.guild.name}__** for **__{bank.name}__**",
+                title=f"All of your donations in **__{ctx.guild.name}__** for **__{bank.name}__**",
                 description=f"{emoji} {humanize_number(donos)}",
                 color=await ctx.embed_color(),
             )
@@ -301,8 +301,8 @@ class DonationLogging(commands.Cog):
         else:
             banks = await self.cache.get_all_dono_banks(ctx.guild.id)
             embed = discord.Embed(
-                title=f"All your donations in **__{ctx.guild.name}__**",
-                description=f"Total amount donated overall: {humanize_number(sum([bank.get_user(ctx.author.id).donations for bank in banks]))}",
+                title=f"All of your donations in **__{ctx.guild.name}__**",
+                description=f"Your overall combined bank donation amount: {humanize_number(sum([bank.get_user(ctx.author.id).donations for bank in banks]))}",
                 color=await ctx.embed_color(),
             )
             for bank in banks:
@@ -310,12 +310,12 @@ class DonationLogging(commands.Cog):
                     continue
                 donations = bank.get_user(ctx.author.id).donations
                 embed.add_field(
-                    name=f"{bank.name.title()}",
+                    name=f"**{bank.name.title()}**",
                     value=f"{bank.emoji} {humanize_number(donations)}",
                     inline=True,
                 )
 
-        embed.set_author(name=ctx.author, icon_url=ctx.author.avatar_url)
+        embed.set_author(name=f"{ctx.author} ({ctx.author.id})", icon_url=ctx.author.avatar_url)
         embed.set_footer(text=f"{ctx.guild} appreciates your donation!", icon_url=ctx.guild.icon_url)
 
         await ctx.send(embed=embed)
