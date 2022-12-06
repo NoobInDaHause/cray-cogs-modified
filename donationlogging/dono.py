@@ -719,7 +719,7 @@ class DonationLogging(commands.Cog):
 
         await ctx.send(embed=embed)
 
-    @commands.group(name="donoset", invoke_without_command=True)
+    @commands.group(name="donoset", invoke_without_command=True, aliases=["dset"])
     @commands.mod_or_permissions(administrator=True)
     @setup_done()
     async def donoset(self, ctx):
