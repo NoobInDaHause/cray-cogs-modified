@@ -558,6 +558,7 @@ class Gset(Giveaways, name="Giveaways"):
         message = (
             f"**Start Header:** {message}\n\n"
             f"**End Header:** {endheader}\n\n"
+            f"**Embed Color:** {color}\n\n"
             f"**Reaction Emoji:** {emoji}\n\n"
             f"**Will the winner be dm'ed?:** {winnerdm}\n\n"
             f"**Will the host be dm'ed?:** {hostdm}\n\n"
