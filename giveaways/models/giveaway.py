@@ -14,7 +14,6 @@ from .flags import GiveawayFlags
 from .guildsettings import apply_multi, get_guild_settings
 from .requirements import Requirements
 
-gendmsg = "**:tada: GIVEAWAY ENDED :tada:**"
 
 
 class GiveawayMeta:
@@ -580,6 +579,7 @@ class Giveaway(GiveawayMeta):
         hostdm = settings.hostdm
         endmsg: str = settings.endmsg
         gmsg = msg
+        msg2: str = settings.msg2
         entrants = self.entrants
         random.shuffle(entrants)
         if not self.flags.no_multi:
@@ -604,7 +604,7 @@ class Giveaway(GiveawayMeta):
                 f"Winner(s): {w}\nHost: {host.mention}"
             )
             embed.set_footer(text=f"Winners: {winners} | Ended at ")
-            await gmsg.edit(embed=embed, content=gendmsg)
+            await gmsg.edit(embed=embed, content=msg2)
             endembed2 = discord.Embed(
             title="Giveaway Ended!",
             description=f"Nobody entered the **{prize}** giveaway.\n[Jump to giveaway.]({link})",
@@ -622,7 +622,7 @@ class Giveaway(GiveawayMeta):
         embed.colour = discord.Colour.from_rgb(r=47,g=49,b=54)
         embed.description = f"Winner(s): {w}\nHost: {host.mention}"
         embed.set_footer(text=f"Winners: {winners} | Ended at")
-        await gmsg.edit(embed=embed, content=gendmsg)
+        await gmsg.edit(embed=embed, content=msg2)
         
         endembed = discord.Embed(
             title="Giveaway Ended!",
