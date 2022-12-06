@@ -1180,11 +1180,9 @@ class DonationLogging(commands.Cog):
     @setup_done()
     async def donoset_reset(self, ctx: commands.Context):
         """
-        Completely reset you guild's settings.
+        Completely reset your guild's donation system.
 
         All your data will be removed and you will have to re-run the setup process.
-        
-        Note: Ignore the confirmation message if you wish to abort. DO NOT REPLY WITH `no` TO ABORT JUST IGNORE THE CONFIRMATION AND THE TIMEOUT WILL DO IT"S THING.
         """
         dembed = discord.Embed(description="Are you sure you want to reset the guild's donation system? (yes/no)", color=discord.Colour.from_rgb(r=47, g=49, b=54))
         await ctx.send(embed=dembed)
@@ -1203,7 +1201,7 @@ class DonationLogging(commands.Cog):
         
         await self.config.guild(ctx.guild).clear()
         await self.cache.clear_guild_settings(ctx.guild.id)
-        resetembed = discord.Embed(description="Successfully reset your guild's settings.", color=discord.Colour.from_rgb(r=47, g=49, b=54))
+        resetembed = discord.Embed(description="Successfully reset your guild's donation system.", color=discord.Colour.from_rgb(r=47, g=49, b=54))
         return await ctx.send(embed=resetembed)
 
     @donoset.command(name="showsettings", aliases=["showset", "ss"])
