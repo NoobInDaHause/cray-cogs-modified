@@ -607,7 +607,7 @@ class DonationLogging(commands.Cog):
         )
 
         embed = discord.Embed(
-            title=f"{user}'s donations in **__{ctx.guild.name}__**",
+            title=f"All of their donations in **__{ctx.guild.name}__** for **__{bank.name}__**",
             description=f"Total amount donated: {emoji} {humanize_number(donos)}\n\nThey have **{notes}** notes",
             color=discord.Color.random(),
         )
