@@ -582,10 +582,12 @@ class DonationLogging(commands.Cog):
         if not bank:
             banks = await self.cache.get_all_dono_banks(ctx.guild.id)
             embed = discord.Embed(
-                title=f"All of {user}'s donations in **__{ctx.guild.name}__**",
-                description=f"Total amount donated overall: {humanize_number(sum([bank.get_user(user.id).donations for bank in banks]))}",
+                title=f"All of their donations in **__{ctx.guild.name}__**",
+                description=f"Their overall combined bank donation amount: {humanize_number(sum([bank.get_user(user.id).donations for bank in banks]))}",
                 color=await ctx.embed_color(),
             )
+            embed.set_author(name=f"{user} {user.id}", icon_url=f"{user.avatar_url}")
+            embed.set_footer(text=ctx.guild, icon_url=ctx.guild.icon_url)
             for bank in banks:
                 donations = bank.get_user(user.id).donations
                 embed.add_field(
@@ -606,7 +608,7 @@ class DonationLogging(commands.Cog):
 
         embed = discord.Embed(
             title=f"{user}'s donations in **__{ctx.guild.name}__**",
-            description=f"Total amount donated: {emoji}{humanize_number(donos)}\n\nThey have **{notes}** notes",
+            description=f"Total amount donated: {emoji} {humanize_number(donos)}\n\nThey have **{notes}** notes",
             color=discord.Color.random(),
         )
         embed.set_author(name=user, icon_url=user.avatar_url)
