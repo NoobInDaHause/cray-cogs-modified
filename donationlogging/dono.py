@@ -122,7 +122,7 @@ class DonationLogging(commands.Cog):
     async def _before_loop(self):
         await self.bot.wait_until_red_ready()
 
-    @commands.group(name="dono", invoke_without_command=True)
+    @commands.group(name="dono", invoke_without_command=True, aliases=["d"])
     async def dono(
         self,
         ctx: commands.Context,
@@ -377,7 +377,7 @@ class DonationLogging(commands.Cog):
 
         return
 
-    @dono.command(name="add", usage="[bank] <amount> [user] [--note]")
+    @dono.command(name="add", usage="[bank] <amount> [user] [--note]", aliases=["a"])
     @is_dmgr()
     @commands.guild_only()
     @setup_done()
@@ -421,7 +421,7 @@ class DonationLogging(commands.Cog):
             role = await bank.addroles(ctx, user)
         await self.dono_log(ctx, "add", user, amount, donos, bank, role, note)
 
-    @dono.command(name="remove", usage="[bank] <amount> [user] [--note]")
+    @dono.command(name="remove", usage="[bank] <amount> [user] [--note]", aliases=["r"])
     @is_dmgr()
     @commands.guild_only()
     @setup_done()
