@@ -15,6 +15,7 @@ config.register_guild(**guild_default_config)
 @dataclass(init=True, repr=True)
 class GuildSettings:
     msg: str
+    msg2: str
     emoji: str
     winnerdm: bool
     winnerdm_message: str
