@@ -1195,7 +1195,7 @@ class DonationLogging(commands.Cog):
             return await ctx.send(embed=timeoutembed)
         
         # if response is different than yes / y - return
-        if response.content.lower() not in ("yes"): # lower() makes everything lowercase to also catch: YeS, YES etc.
+        if response.content.lower() not in ("yes", "true"): # lower() makes everything lowercase to also catch: YeS, YES etc.
             cancelembed = discord.Embed(description="Alright not doing that then.", color=discord.Colour.from_rgb(r=47, g=49, b=54))
             return await ctx.send(embed=cancelembed)
         
