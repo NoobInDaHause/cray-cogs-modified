@@ -335,7 +335,7 @@ class Giveaway(GiveawayMeta):
             discord.Embed(
                 title=embed_title,
                 description=embed_description,
-                color=settings.color,
+                color=await self.get_embed_color(),
             )
             .set_footer(text=embed_footer_text)
         )
