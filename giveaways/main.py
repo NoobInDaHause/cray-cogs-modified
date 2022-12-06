@@ -1053,36 +1053,36 @@ class Giveaways(commands.Cog):
     > There are a bunch of giveaway settings that you can change.
 
     > **Auto deletion of giveaway commands**
-        You can set whether giveaway command invocations get deleted themselves or not. `{ctx.clean_prefix}gset autodelete true`
+        You can set whether giveaway command invocations get automatically deleted or not. See `{ctx.clean_prefix}gset autodelete`.
 
     > **Giveaway headers**
-        The message above the giveaway can also be changed. `{ctx.clean_prefix}gset gmsg`
+        The message above the giveaway can also be changed. See `{ctx.clean_prefix}gset startheader` and `{ctx.clean_prefix}gset endheader`.
 
     > **Giveaway emoji**
-        The emoji to which people must react to enter a giveaway. This defaults to :tada: but can be changed to anything. `{ctx.clean_prefix}gset emoji`
+        The emoji to which people must react to enter a giveaway. This defaults to :tada: but can be changed to anything. See `{ctx.clean_prefix}gset emoji`.
 
     > **Giveaway pingrole**
-        The role that gets pinged when you use the `--ping` flag. `{ctx.clean_prefix}gset pingrole`
+        The role that gets pinged when you use the `--ping` flag. See `{ctx.clean_prefix}gset pingrole`.
 
     > **Thank message**
-        The message sent when you use the `--thank` flag. `{ctx.clean_prefix}gset tmsg`
+        The message sent when you use the `--thank` flag. See `{ctx.clean_prefix}gset tmsg`.
 
     > **Ending message**
-        The message sent when the giveaway ends containing the winner mentions. `{ctx.clean_prefix}gset endmsg`
+        The message containing an embed sent when the giveaway ends containing the winner mentions. See `{ctx.clean_prefix}gset endmsg`.
+        This only edits the embed description.
 
     > **Default blacklist**
-        The roles that are by default blacklisted from giveaways. `{ctx.clean_prefix}gset blacklist`
+        The roles that are by default blacklisted from giveaways. See `{ctx.clean_prefix}gset blacklist`.
 
     > **Default bypass**
-        The roles that are by default able to bypass requirements in giveaways. `{ctx.clean_prefix}gset bypass`
+        The roles that are by default able to bypass requirements in giveaways. See `{ctx.clean_prefix}gset bypass`.
 
     > **Show defaults in giveaway embed**
         It gets kinda janky when you have multiple defaults set and the giveaway embed becomes too long.
-        Easy way out, is to simply disable showing the defaults in the embed ;) `{ctx.clean_prefix}gset showdefaults`
+        Easy way out, is to simply disable showing the defaults in the embed ;) See `{ctx.clean_prefix}gset showdefaults`.
 
-    > **Embed**
-        The giveaway embed can be completely customized as per your liking. All parts of an embed are editable
-        and their respective settings are available under the `{ctx.clean_prefix}gset embed` command.
+    > **Giveaway embed colour**
+        The giveaway embed colour can be completely customized as per your liking. See `{ctx.clean_prefix}gset colour`.
         """
         )
 
