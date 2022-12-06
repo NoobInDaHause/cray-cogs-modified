@@ -25,17 +25,30 @@ class Gset(Giveaways, name="Giveaways"):
 
         All subcommands represent a separate settings."""
 
-    @gset.command(name="gmsg")
+    @gset.command(name="startheader")
     @commands.admin_or_permissions(administrator=True)
-    async def gset_gmsg(self, ctx, *, message):
+    async def gset_startheader(self, ctx, *, message):
         """
-        Set a custom giveaway message.
+        Set a custom giveaway start message.
 
-        This message shows above the giveaway embed."""
+        This message shows above the started giveaway embed.
+        """
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.msg.set(message)
-        await ctx.reply(f"The new giveaway message has been set to \n```\n{message}\n```")
+        await ctx.reply(f"The new start header message has been set to \n```\n{message}\n```")
 
+    @gset.command(name="endheader")
+    @commands.admin_or_permissions(administrator=True)
+    async def gset_endheader(self, ctx, *, message):
+        """
+        Set a custom giveaway end message.
+        
+        This message shows above the ended giveaway embed.
+        """
+        settings = await get_guild_settings(ctx.guild.id, False)
+        await settings.msg2.set(message)
+        await ctx.reply(f"The new end header message has been set to \n```\n{message}\n```")
+    
     @gset.group(name="embed")
     @commands.admin_or_permissions(administrator=True)
     async def gset_embed(self, ctx: commands.Context):
