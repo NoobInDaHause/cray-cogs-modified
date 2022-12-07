@@ -74,7 +74,7 @@ class Gset(Giveaways, name="Giveaways"):
     @commands.admin_or_permissions(administrator=True)
     async def gset_tmsg(self, ctx, *, message):
         """
-        Set a custom message for giveaways.
+        Set a custom thank message embed for giveaways.
 
         This message gets sent in an embed when you use the `--thank` flag while starting a giveaway.
 
@@ -86,7 +86,8 @@ class Gset(Giveaways, name="Giveaways"):
                         {donor.id}
                         {donor}
 
-                - prize
+                - prize :
+                        {prize}
 
         Use these variables within curly brackets.
         For Example:
