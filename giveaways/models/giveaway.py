@@ -486,7 +486,7 @@ class Giveaway(GiveawayMeta):
 
         if msg:
             kwargs["embed"] = discord.Embed(
-                description=f"{msg}", color=discord.Colour.from_rgb(r=255, g=194, b=0)
+                description=f"{msg}", color=await self.bot.get_embed_color()
             )
             kwargs["embed"].set_author(name="Donator Message", icon_url='https://emoji.discadia.com/emojis/3d0fd7cd-8331-4045-a254-28fcc3b2a06a.PNG')
 
