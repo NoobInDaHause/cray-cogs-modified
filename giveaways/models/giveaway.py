@@ -502,7 +502,7 @@ class Giveaway(GiveawayMeta):
                         prize=self.prize,
                     )
                 ),
-                color=discord.Colour.random(),
+                color=await self.bot.get_embed_color(channel),
             )
             await channel.send(embed=embed)
 
