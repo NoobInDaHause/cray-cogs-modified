@@ -605,14 +605,11 @@ class Giveaway(GiveawayMeta):
             )
             embed.set_footer(text=f"Winners: {winners} | Ended at ")
             await gmsg.edit(embed=embed, content=msg2)
-            endembed2 = discord.Embed(
-            title="Giveaway Ended!",
-            description=f"Nobody entered the **{prize}** giveaway.\n[Jump to giveaway.]({link})",
-            colour=discord.Colour.from_rgb(r=47, g=49, b=54),
-            url=f"{link}",
-            timestamp=datetime.now(tz=timezone.utc)
+            button = url_button.URLButton(
+            f"Jump to giveaway",
+            link,
             )
-            await gmsg.reply(content="There were no winners.", embed=endembed2)
+            await url_button.send_message(self.bot, self.channel.id, content=f"Nobody entered the **{prize}** giveaway.", url_button=button)
             if hostdm == True:
                 await self.hdm()
 
