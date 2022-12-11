@@ -192,7 +192,7 @@ class Gset(Giveaways, name="Giveaways"):
                 - {winner} : The winner(s) of the giveaway
 
         For example:
-                `[p]gset endmsg Congratulations to {winner} for winning the **{prize}** giveaway."""
+                `[p]gset endmsg Congratulations to {winner} for winning the **{prize}** giveaway.`"""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.endmsg.set(message)
         await ctx.reply(f"The ending message has been changed to\n```\n{message}\n```")
