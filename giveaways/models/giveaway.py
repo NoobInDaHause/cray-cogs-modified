@@ -3,7 +3,7 @@ import contextlib
 import random
 from datetime import datetime, timezone
 from typing import Any, Coroutine, Counter, List, Optional
-
+from . import url_button
 import discord
 from redbot.core import commands
 from redbot.core.bot import Red
@@ -624,14 +624,11 @@ class Giveaway(GiveawayMeta):
         embed.set_footer(text=f"Winners: {winners} | Ended at")
         await gmsg.edit(embed=embed, content=msg2)
         
-        endembed = discord.Embed(
-            title="Giveaway Ended!",
-            description=endmsg.format_map(formatdict), #f"Congratulations to the winners above for winning the **{prize}** giveaway.\n[Jump to giveaway.]({link})",
-            colour=discord.Colour.from_rgb(r=47, g=49, b=54),
-            url=f"{link}",
-            timestamp=datetime.now(tz=timezone.utc)
+        button = url_button.URLButton(
+            f"Jump to giveaway",
+            link,
         )
-        await gmsg.reply(content=f"{w}", embed=endembed)
+        await url_button.send_message(self.bot, self.channel.id, content=endmsg.format_map(formatdict), url_button=button)
 
         if winnerdm == True:
             await self.wdm()
