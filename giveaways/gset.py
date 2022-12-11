@@ -184,18 +184,15 @@ class Gset(Giveaways, name="Giveaways"):
     @commands.admin_or_permissions(administrator=True)
     async def gset_endmsg(self, ctx, *, message):
         """
-        Set the embed description message that gets sent when a giveaway ends.
+        Set the message that gets sent when a giveaway ends.
 
         Usable variables:
                 - {prize} : The prize of the giveaway
 
                 - {winner} : The winner(s) of the giveaway
 
-                - {link} : The jumplink to the giveaway.
-
         For example:
-                `[p]gset endmsg Congratulations to the winner(s) above for winning the **{prize}** giveaway.
-                [Jump to giveaway.]({link})`"""
+                `[p]gset endmsg Congratulations to {winner} for winning the **{prize}** giveaway."""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.endmsg.set(message)
         await ctx.reply(f"The ending message has been changed to\n```\n{message}\n```")
