@@ -210,7 +210,7 @@ class TimerObj:
 
         embed: discord.Embed = msg.embeds[0]
 
-        embed.description = f"This timer has ended!\nHosted by: {self.host.mention}"
+        embed.description = f"This timer has ended.\nHosted by: {self.host.mention}"
         
         embed.timestamp = datetime.utcnow()
         
