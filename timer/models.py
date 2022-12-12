@@ -131,9 +131,9 @@ class TimerObj:
 
     async def get_embed_description(self):
         return (
-            f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}\nEnds in: <t:{int(self.ends_at.timestamp())}:f>"
+            f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}\nEnds at: <t:{int(self.ends_at.timestamp())}:f>"
             if (await self.cog.get_guild_settings(self.guild_id)).notify_users
-            else f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}\nEnds in: <t:{int(self.ends_at.timestamp())}:f>"
+            else f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}\nEnds at: <t:{int(self.ends_at.timestamp())}:f>"
         )
 
     async def get_embed_color(self):
