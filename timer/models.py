@@ -131,9 +131,9 @@ class TimerObj:
 
     async def get_embed_description(self):
         return (
-            f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}\nEnds at: <t:{int(self.ends_at.timestamp())}:f>"
+            f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}"
             if (await self.cog.get_guild_settings(self.guild_id)).notify_users
-            else f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}\nEnds at: <t:{int(self.ends_at.timestamp())}:f>"
+            else f"Time left: **{cf.humanize_timedelta(timedelta=self.remaining_time)}** (<t:{int(self.ends_at.timestamp())}:R>)\nHosted by: {self.host.mention}"
         )
 
     async def get_embed_color(self):
@@ -161,8 +161,10 @@ class TimerObj:
                 title=f"**{self.name}**",
                 description=await self.get_embed_description(),
                 color=await self.get_embed_color(),
+                timestamp=self.ends_at
             )
         )
+        embed.set_footer(text="Ends at")
         embed.set_thumbnail(url=self.guild.icon_url)
 
         msg: discord.Message = await self.channel.send(embed=embed)
