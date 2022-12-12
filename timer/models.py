@@ -228,7 +228,7 @@ class TimerObj:
         notify = (await self.cog.get_guild_settings(self.guild_id)).notify_users
 
         pings = (
-            "\n".join((i.mention for i in self.entrants if i is not None))
+            ", ".join((i.mention for i in self.entrants if i is not None))
             if self._entrants and notify
             else ""
         )
@@ -237,7 +237,7 @@ class TimerObj:
             for page in cf.pagify(pings, delims=[" "], page_length=2000):
                 await msg.channel.send(page, delete_after=3)
 
-        timerendmsg = f"{self.host.mention} The timer for **{self.name}** has ended.\n" + self.jump_url
+        timerendmsg = f"{self.host.mention} your timer for **{self.name}** has ended.\n" + self.jump_url
         mentionperms = discord.AllowedMentions(roles=False, everyone=False, users=True)
         await msg.channel.send(content=timerendmsg, allowed_mentions=mentionperms)
         
