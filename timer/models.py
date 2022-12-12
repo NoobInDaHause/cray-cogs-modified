@@ -3,7 +3,7 @@ import logging
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any, Coroutine, Dict, List, Optional
-from . import url_button
+
 import discord
 from redbot.core.bot import Red
 from redbot.core.utils import chat_formatting as cf
@@ -230,12 +230,9 @@ class TimerObj:
             for page in cf.pagify(pings, delims=[" "], page_length=2000):
                 await msg.channel.send(page, delete_after=3)
 
-        button = url_button.URLButton(
-        f"Timer",
-        self.jump_url,
-        )
-        timerendmsg = f"{self.host.mention} The timer for **{self.name}** has ended."
-        await url_button.send_message(self.bot, self.channel.id, content=timerendmsg, url_button=button)
+        timerendmsg = f"{self.host.mention} The timer for **{self.name}** has ended.\n" + self.jump_url
+        mentionperms = discord.AllowedMentions(roles=False, everyone=False, users=True)
+        await msg.channel.send(content=timerendmsg, allowed_mentions=mentionperms)
         
         await self.cog.remove_timer(self)
         self._tasks[self.message_id].cancel()
