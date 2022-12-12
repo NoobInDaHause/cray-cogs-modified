@@ -163,6 +163,7 @@ class TimerObj:
                 color=await self.get_embed_color(),
             )
         )
+        embed.set_thumbnail(url=self.guild.icon_url)
 
         msg: discord.Message = await self.channel.send(embed=embed)
         if (await self.cog.get_guild_settings(self.guild_id)).notify_users:
@@ -190,6 +191,8 @@ class TimerObj:
                 embed: discord.Embed = msg.embeds[0]
 
                 embed.description = await self.get_embed_description()
+                
+                embed.set_thumbnail(url=self.guild.icon_url)
 
                 await msg.edit(embed=embed)
 
@@ -215,6 +218,8 @@ class TimerObj:
         embed.timestamp = datetime.utcnow()
         
         embed.set_footer(text="Ended at")
+        
+        embed.set_thumbnail(url=self.guild.icon_url)
 
         await msg.edit(embed=embed)
 
