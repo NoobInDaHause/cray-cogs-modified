@@ -13,6 +13,11 @@ guild_defaults = {"timers": [], "timer_settings": {"notify_users": True, "emoji"
 
 
 class Timer(commands.Cog):
+    """
+    Host timer countdowns to your server.
+    
+    Timer also ghost pings users who react to get notified.
+    """
 
     __author__ = ["crayyy_zee#2900"]
     __version__ = "1.0.3"
