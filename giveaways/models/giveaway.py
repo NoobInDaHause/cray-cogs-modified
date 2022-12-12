@@ -606,7 +606,7 @@ class Giveaway(GiveawayMeta):
             embed.set_footer(text=f"Winners: {winners} | Ended at ")
             await gmsg.edit(embed=embed, content=msg2)
             button = url_button.URLButton(
-            f"Jump to giveaway",
+            f"Jump To Giveaway",
             link,
             )
             await url_button.send_message(self.bot, self.channel.id, content=f"Nobody entered the **{prize}** giveaway.", url_button=button)
@@ -622,7 +622,7 @@ class Giveaway(GiveawayMeta):
         await gmsg.edit(embed=embed, content=msg2)
         
         button = url_button.URLButton(
-            f"Jump to giveaway",
+            f"Jump To Giveaway",
             link,
         )
         await url_button.send_message(self.bot, self.channel.id, content=endmsg.format_map(formatdict), url_button=button)
