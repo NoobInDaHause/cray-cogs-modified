@@ -306,7 +306,7 @@ class Giveaway(GiveawayMeta):
         settings = await get_guild_settings(self.guild.id)
 
         timestamp_str = (
-            f"<t:{int(self.ends_at.timestamp())}:R>" #(<t:{int(self.ends_at.timestamp())}:f>)"
+            f"<t:{int(self.ends_at.timestamp())}:R> (<t:{int(self.ends_at.timestamp())}:f>)"
         )
         embed_title = settings.embed_title.format_map(Coordinate(prize=self.prize))
         embed_description = settings.embed_description.format_map(
