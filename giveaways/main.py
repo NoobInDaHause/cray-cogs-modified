@@ -763,18 +763,18 @@ class Giveaways(commands.Cog):
         for i in giveaways:
             value = (
                 f"***[`{i.prize.center(len(i.prize) + 10, ' ')}`]({i.jump_url})***\n\n"
-                f"> Guild: `{i.guild}` (`{i.guild.id}`)\n"
-                f"> Channel: {i.channel.mention} (`{i.channel}`) (`{i.channel.id}`)\n"
-                f"> Host: `{i.host}` (`{i.host.id}`)\n"
-                f"> Message id: `{i.message_id}`\n"
-                f"> Amount of winners: `{i.amount_of_winners}`\n"
-                f"> Emoji: {i.emoji} (`{i.emoji}`)\n"
+                f"> **Guild:**\n`{i.guild}` (`{i.guild.id}`)\n"
+                f"> **Channel:**\n{i.channel.mention} (`{i.channel}`) (`{i.channel.id}`)\n"
+                f"> **Host:**\n`{i.host}` (`{i.host.id}`)\n"
+                f"> **Message ID:**\n`{i.message_id}`\n"
+                f"> **Amount of Winners:**\n`{i.amount_of_winners}`\n"
+                f"> **Emoji:**\n{i.emoji} (`{i.emoji}`)\n"
                 + (
-                    f"> Starts in: `{humanize_timedelta(timedelta=i.starts_at - datetime.now(timezone.utc))}`\n"
+                    f"> **Starts in:**\n`{humanize_timedelta(timedelta=i.starts_at - datetime.now(timezone.utc))}`\n"
                     if i.starts_at > datetime.now(timezone.utc)
                     else ""
                 )
-                + f"> Ends in: `{humanize_timedelta(timedelta=i.ends_at - datetime.now(timezone.utc))}`\n"
+                + f"> **Ends in:**\n`{humanize_timedelta(timedelta=i.ends_at - datetime.now(timezone.utc))}`\n"
             )
             fields.append({"name": "\u200b", "value": value, "inline": False})
 
