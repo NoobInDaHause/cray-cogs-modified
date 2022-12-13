@@ -763,12 +763,12 @@ class Giveaways(commands.Cog):
         for i in giveaways:
             value = (
                 f"***[`{i.prize.center(len(i.prize) + 10, ' ')}`]({i.jump_url})***\n\n"
-                f"> Guild: `{i.guild}`\n"
-                f"> Channel: {i.channel.mention} (`{i.channel}`)\n"
+                f"> Guild: `{i.guild}` (`{i.guild.id}`)\n"
+                f"> Channel: {i.channel.mention} (`{i.channel}`) (`{i.channel.id}`)\n"
                 f"> Host: `{i.host}` (`{i.host.id}`)\n"
                 f"> Message id: `{i.message_id}`\n"
                 f"> Amount of winners: `{i.amount_of_winners}`\n"
-                f"> Emoji: {i.emoji}\n"
+                f"> Emoji: {i.emoji} (`{i.emoji.name}`) (`{i.emoji.id}`)\n"
                 + (
                     f"> Starts in: `{humanize_timedelta(timedelta=i.starts_at - datetime.now(timezone.utc))}`\n"
                     if i.starts_at > datetime.now(timezone.utc)
