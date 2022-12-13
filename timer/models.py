@@ -239,7 +239,7 @@ class TimerObj:
 
         timerendmsg = f"{self.host.mention} your timer for **{self.name}** has ended.\n" + self.jump_url
         mentionperms = discord.AllowedMentions(roles=False, everyone=False, users=True)
-        await msg.channel.send(content=timerendmsg, allowed_mentions=mentionperms)
+        await msg.reply(content=timerendmsg, allowed_mentions=mentionperms)
         
         await self.cog.remove_timer(self)
         self._tasks[self.message_id].cancel()
