@@ -768,7 +768,7 @@ class Giveaways(commands.Cog):
                 f"> Host: `{i.host}` (`{i.host.id}`)\n"
                 f"> Message id: `{i.message_id}`\n"
                 f"> Amount of winners: `{i.amount_of_winners}`\n"
-                f"> Emoji: {i.emoji} (`{i.emoji.name}`) (`{i.emoji.id}`)\n"
+                f"> Emoji: {i.emoji} (`{i.emoji}`)\n"
                 + (
                     f"> Starts in: `{humanize_timedelta(timedelta=i.starts_at - datetime.now(timezone.utc))}`\n"
                     if i.starts_at > datetime.now(timezone.utc)
