@@ -712,7 +712,7 @@ class EndedGiveaway(GiveawayMeta):
 
         if len(entrants) == 0:
             await gmsg.reply(
-                f"There weren't enough entrants to determine a winner.\nClick on my replied message to jump to the giveaway."
+                f"There weren't enough entrants to determine a winner.\n{link}"
             )
             return
 
@@ -730,9 +730,9 @@ class EndedGiveaway(GiveawayMeta):
         w = self.get_winners_str()
 
         await gmsg.reply(
-            f"Congratulations {w}! You have won the reroll for the giveaway on this link.\n{link}"
+            f"Congratulations to {w}you have won the reroll for **{self.prize}** giveaway.\n{link}"
             if winner
-            else "There weren't enough entrants with the requirement to determine a winner.\nClick on my replied message to jump to the giveaway."
+            else f"There weren't enough entrants with the requirement to determine a winner.\n{link}"
         )
 
     @classmethod
