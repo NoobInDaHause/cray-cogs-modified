@@ -85,7 +85,7 @@ class Giveaways(commands.Cog):
                         "go to this website: <https://forms.gle/TEZ3YbbMPMEWYuuMA> "
                         "and apply to get the key. You should probably get a response within "
                         "24 hours but if you don't, visit this server for information: https://discord.gg/6FJhupDHS6 "
-                        "You can then set the amari api key with the `[p]set api amari auth,<api key>` command"
+                        "You can then set the amari api key with the `[p]set api amari auth,<api key>` command."
                     )
                     await self.config.sent_message.set(True)
 
