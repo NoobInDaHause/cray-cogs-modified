@@ -35,7 +35,7 @@ class Gset(Giveaways, name="Giveaways"):
         """
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.msg.set(message)
-        await ctx.reply(f"The new start header message has been set to \n```\n{message}\n```")
+        await ctx.reply(f"The new giveaway start header message has been set to \n```\n{message}\n```")
 
     @gset.command(name="endheader")
     @commands.admin_or_permissions(administrator=True)
@@ -97,7 +97,7 @@ class Gset(Giveaways, name="Giveaways"):
                 Please thank **{donor}** in #general-chat.`"""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.tmsg.set(message)
-        await ctx.reply(f"The new giveaway message has been set to \n```\n{message}\n```")
+        await ctx.reply(f"The new giveaway thank message has been set to \n```\n{message}\n```")
 
     @gset.command(name="emoji")
     @commands.admin_or_permissions(administrator=True)
@@ -143,7 +143,7 @@ class Gset(Giveaways, name="Giveaways"):
             - {jump_url}: the url to the giveaway."""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.winnerdm_message.set(message)
-        await ctx.reply(f"The new winner dm message has been set to \n{box(message, 'py')}")
+        await ctx.reply(f"The new giveaway winner dm message has been set to \n{box(message, 'py')}")
 
     @gset.group(name="hostdm")
     @commands.admin_or_permissions(administrator=True)
@@ -178,24 +178,26 @@ class Gset(Giveaways, name="Giveaways"):
             - {jump_url}: the url to the giveaway."""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.hostdm_message.set(message)
-        await ctx.reply(f"The new host dm message has been set to \n{box(message, 'py')}")
+        await ctx.reply(f"The new giveaway host dm message has been set to \n{box(message, 'py')}")
 
     @gset.command(name="endmsg")
     @commands.admin_or_permissions(administrator=True)
     async def gset_endmsg(self, ctx, *, message):
         """
-        Set the message that gets sent when a giveaway ends.
+        Set the giveaway embed end message that gets sent when a giveaway ends.
 
         Usable variables:
                 - {prize} : The prize of the giveaway
 
                 - {winner} : The winner(s) of the giveaway
 
+                - {link} : The link of the giveaway.
+
         For example:
-                `[p]gset endmsg Congratulations to {winner} for winning the **{prize}** giveaway.`"""
+                `[p]gset endmsg Congratulations to the winner(s) above for winning the **{prize}** giveaway.`"""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.endmsg.set(message)
-        await ctx.reply(f"The ending message has been changed to\n```\n{message}\n```")
+        await ctx.reply(f"The giveaway end message has been set to\n```\n{message}\n```")
 
     @gset.group(name="manager", aliases=["managers"], invoke_without_command=True)
     @commands.admin_or_permissions(administrator=True)

@@ -609,7 +609,14 @@ class Giveaway(GiveawayMeta):
             f"Jump To Giveaway",
             link,
             )
-            await url_button.send_message(self.bot, self.channel.id, content=f"Nobody entered the **{prize}** giveaway.", url_button=button)
+            nowinembed = discord.Embed(
+                title="Giveaway Ended!",
+                url=link,
+                description=f"Nobody entered the **{prize}** giveaway.",
+                colour=0x2F3136,
+                timestamp=datetime.now(tz=timezone.utc)
+            )
+            await url_button.send_message(self.bot, self.channel.id, content="No winners were picked.", embed=nowinembed, url_button=button)
             if hostdm == True:
                 await self.hdm()
 
@@ -625,7 +632,14 @@ class Giveaway(GiveawayMeta):
             f"Jump To Giveaway",
             link,
         )
-        await url_button.send_message(self.bot, self.channel.id, content=endmsg.format_map(formatdict), url_button=button)
+        winembed = discord.Embed(
+                title="Giveaway Ended!",
+                url=link,
+                description=endmsg.format_map(formatdict), #f"Congratulations to the winner(s) above for winning the **{prize}** giveaway.",
+                colour=0x2F3136,
+                timestamp=datetime.now(tz=timezone.utc)
+            )
+        await url_button.send_message(self.bot, self.channel.id, content=w, embed=winembed, url_button=button)
 
         if winnerdm == True:
             await self.wdm()
