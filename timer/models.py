@@ -222,6 +222,8 @@ class TimerObj:
         embed.set_footer(text="Ended at")
         
         embed.set_thumbnail(url=self.guild.icon_url)
+        
+        embed.colour = 0x2F3136
 
         await msg.edit(embed=embed)
 
