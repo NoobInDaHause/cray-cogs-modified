@@ -611,7 +611,7 @@ class Giveaway(GiveawayMeta):
             embed.set_footer(text=f"Winners: {winners} | Ended at")
             await gmsg.edit(embed=embed, content=settings.msg2)
 
-            nowin = f"Nobody entered the **{prize}** giveaway.\n{link}"
+            nowin = f"No valid entries for the **{prize}** giveaway.\n{link}"
             await gmsg.reply(nowin)
             if hostdm == True:
                 await self.hdm()
