@@ -751,7 +751,7 @@ class EndedGiveaway(GiveawayMeta):
 
         w = self.get_winners_str()
         
-        rerollembed = (f"Congratulations to the new winner(s) above for winning the reroll for the **{self.prize}** giveaway."
+        rerollembed = (f"Congratulations to the user(s) above for winning the reroll for the **{self.prize}** giveaway."
             if winner
             else f"There weren't enough entrants with the requirement to determine a winner.")
         
