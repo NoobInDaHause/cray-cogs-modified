@@ -21,6 +21,7 @@ DictConverter = commands.get_dict_converter(delims=[",", " "])
 class DonationLogging(commands.Cog):
     """
     Donation logging commands.
+    
     Helps you in counting and tracking user donations (**for discord bot currencies**) and automatically assigning them roles.
     """
 
