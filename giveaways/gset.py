@@ -42,7 +42,7 @@ class Gset(Giveaways, name="Giveaways"):
         """
         Set the colour of giveaways embeds.
 
-        if color is not passed, it will default to invisible embeds.
+        If color is not passed, it will default to invisible embeds.
         Before this command is used, the global bot color will be used.
         Default is invisible (0x303036)."""
         settings = await get_guild_settings(ctx.guild.id, False)
@@ -415,12 +415,14 @@ class Gset(Giveaways, name="Giveaways"):
     async def gset_footer(self, ctx: commands.Context):
         """
         Custom the giveaway embed footer.
+        
         Use subcommands to customize the text and icon."""
         
     @gset_footer.command(name="text")
     async def gset_footer_text(self, ctx: commands.Context, *, text: str = ""):
         """
         Change the giveaway embed footer text.
+        
         Available variables are:
             - {winners}: the number of winners of the giveaway.
             - {server}: the name of the server.
@@ -439,6 +441,7 @@ class Gset(Giveaways, name="Giveaways"):
     async def gset_footer_icon(self, ctx: commands.Context, *, icon: str = ""):
         """
         Change the giveaway embed footer icon.
+        
         Provide a link to an image or video to set as the footer icon.
         Usable variables are:
             - {server_icon_url}: The server icon url.
