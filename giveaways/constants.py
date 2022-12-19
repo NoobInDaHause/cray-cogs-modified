@@ -24,7 +24,7 @@ guild_default_config = {
     "hostdm_message": hostdm_message,
     "reactdm": False,
     "unreactdm": False,
-    "endmsg": "Congratulations to the winner(s) above for winning the **{prize}** giveaway.", # "Congratulations to {winner}for winning the **{prize}** giveaway.\n{link}", "The giveaway for **{prize}** has ended.\nWinner(s): {winner}\n{link}"
+    "endmsg": "Congratulations to the user(s) above for winning the **{prize}** giveaway.", # "Congratulations to {winner}for winning the **{prize}** giveaway.\n{link}", "The giveaway for **{prize}** has ended.\nWinner(s): {winner}\n{link}"
     "tmsg": "Prize: **{prize}**\nDonator: {donor.mention}\n\nThank **{donor}** in general chat.",
     "manager": [],
     "pingrole": None,

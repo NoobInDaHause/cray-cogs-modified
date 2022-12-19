@@ -217,7 +217,7 @@ class Gset(Giveaways, name="Giveaways"):
                 - {link} : The jumplink to the giveaway.
 
         For example:
-                `[p]gset endmsg Congratulations to the winner(s) above for winning the **{prize}** giveaway.
+                `[p]gset endmsg Congratulations to the user(s) above for winning the **{prize}** giveaway.
                 [Jump To Giveaway.]({link})`"""
         settings = await get_guild_settings(ctx.guild.id, False)
         await settings.endmsg.set(message)
