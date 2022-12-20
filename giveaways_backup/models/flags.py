@@ -235,8 +235,8 @@ class GiveawayFlags(commands.Converter):
                 if t < current:
                     raise commands.BadArgument("Given date/time for `--ends-at` is in the past.")
 
-                if (t - current).total_seconds() < 10:
-                    raise commands.BadArgument("Time to end at must be greater than 10 seconds.")
+                if (t - current).total_seconds() < 30:
+                    raise commands.BadArgument("Time to end at must be greater than 30 seconds.")
 
                 if start_t and t < start_t:
                     raise commands.BadArgument(
