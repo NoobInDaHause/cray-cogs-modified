@@ -459,7 +459,7 @@ class Giveaways(commands.Cog):
 
         if not time and not flags.ends_in:
             return await ctx.send(
-                "You must specify a time greater than 10 seconds and less than 2 weeks or use the `--ends-at` flag for a more accurate duration."
+                "You must specify a time greater than 30 seconds and less than 1 week or use the `--ends-at` flag for a more accurate duration."
             )
 
         if winners > 20:
