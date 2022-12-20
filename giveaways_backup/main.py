@@ -217,8 +217,8 @@ class Giveaways(commands.Cog):
 
                     if giveaway.ended:
                         try:
-                            g = await giveaway.end()
-                            self.add_to_cache(g)
+                            gaws = await giveaway.end()
+                            self.add_to_cache(gaws)
                             await self.to_config()
 
                         except Exception as e:
