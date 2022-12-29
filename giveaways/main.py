@@ -511,7 +511,7 @@ class Giveaways(commands.Cog):
         """
         Cancel a running giveaway.
         
-        This deletes the provided running giveaway using message ID.
+        This cancels the provided running giveaway using message ID or message link.
         """
         message = message or await self.message_from_reply(ctx.message)
         
